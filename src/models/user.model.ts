@@ -6,9 +6,10 @@ interface IUser {
     id?: mongoose.Types.ObjectId
 name: string
 email:string
-password: string
+password?: string
 mobile?:string
-role: "user"| "deliveryBoy" | "admin"
+role: "user"| "deliveryBoy" | "admin",
+image?: string 
 }
 
 
@@ -24,7 +25,7 @@ email: {
 },
 password: {
     type: String,
-    required: true
+    required: false
 },
 mobile: {
     type: String,
@@ -33,7 +34,11 @@ role: {
     type: String,
     enum: ["user", "deliveryBoy", "admin"],
     default: "user"
+},
+image: {
+    type: String
 }
+
 
 }, {timestamps: true})
 

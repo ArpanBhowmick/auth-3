@@ -8,7 +8,7 @@ import { Separator } from "@/components/ui/separator"
 import Link from "next/link"
 import { FcGoogle } from "react-icons/fc"
 import axios from "axios"
-import { useSession } from "next-auth/react"
+import { signIn, useSession } from "next-auth/react"
 
 export default function RegisterPage() {
   const [name, setName] = useState("")
@@ -79,7 +79,7 @@ export default function RegisterPage() {
             <Separator className="flex-1" />
           </div>
 
-          <Button variant="outline" type="submit" className="w-full flex gap-2">
+          <Button onClick={() => signIn("google")} variant="outline" type="submit" className="w-full flex gap-2">
             <FcGoogle size={20} />
             Continue with Google
           </Button>
